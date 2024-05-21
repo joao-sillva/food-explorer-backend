@@ -25,7 +25,8 @@ class FavoritesController {
         'dishes.image'
       ])
       .innerJoin('dishes', 'dishes.id', 'favorites.dish_id')
-      .select('dish_id')
+      .select('dishes.*', 'favorites.dish_id')
+      .innerJoin('dishes', 'dishes.id', 'favorites.dish_id')
       .where({ user_id })
 
     return response.json(favorites)
