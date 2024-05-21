@@ -11,8 +11,6 @@ class CartsController {
     })
 
     const itemsInsert = cart_items.map(async ({ dish_id, name, quantity }) => {
-      const { name } = await knex('dishes').select('name').where({ id: dish_id }).first()
-
       return {
         cart_id,
         dish_id,

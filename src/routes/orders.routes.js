@@ -7,6 +7,7 @@ const checkAdminPermission = require('../middlewares/checkAdminPermission')
 const ordersRoutes = Router()
 
 const ordersController = new OrdersController()
+
 ordersRoutes.use(ensureAuthenticated)
 
 ordersRoutes.get('/', ordersController.index);
