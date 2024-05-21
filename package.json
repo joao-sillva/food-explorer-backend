@@ -1,0 +1,18 @@
+{
+  "name": "food-explorer-backend",
+  "version": "1.0.0",
+  "description": "API backend do food-explorer",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/server.js"
+  },
+  "keywords": [],
+  "author": "joao-sillva",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
