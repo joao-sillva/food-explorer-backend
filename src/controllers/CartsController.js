@@ -10,7 +10,7 @@ class CartsController {
       created_by: user_id,
     })
 
-    const itemsInsert = cart_items.map(async ({ dish_id, quantity }) => {
+    const itemsInsert = cart_items.map(async ({ dish_id, name, quantity }) => {
       const { name } = await knex('dishes').select('name').where({ id: dish_id }).first()
 
       return {
@@ -23,7 +23,7 @@ class CartsController {
 
     await knex('cart_items').insert(await Promise.all(itemsInsert))
 
-    return response.json()
+    return response.json({ id: cart_id })
   }
 
   async show(request, response) {
@@ -52,20 +52,26 @@ class CartsController {
       updated_at: knex.fn.now(),
     }
 
-    await knex('cart_items').where({ cart_id: id }).delete()
+    const existingItems = await knex('cart_items')
+      .where({ cart_id: id })
+      .select('dish_id')
 
-    const itemsInsert = cart_items.map(async ({ dish_id, quantity }) => {
-      const { name } = await knex('dishes').select('name').where({ id: dish_id }).first()
-
-      return {
-        cart_id: id,
-        dish_id,
-        name,
-        quantity,
+    const updatedItems = cart_items.map(({ dish_id, name, quantity }) => {
+      if (existingItems.some((item) => item.dish_id === dish_id)) {
+        return knex('cart_items')
+          .where({ cart_id: id, dish_id })
+          .update({ quantity })
+      } else {
+        return knex("cart_items").insert({
+          cart_id: id,
+          dish_id,
+          name,
+          quantity,
+        })
       }
     })
 
-    await knex('cart_items').insert(await Promise.all(itemsInsert))
+    await Promise.all(updatedItems)
     await knex('carts').where({ id }).update(cartUpdate)
 
     return response.json()
@@ -78,6 +84,17 @@ class CartsController {
     await knex('carts').where({ id }).delete()
 
     return response.json()
+  }
+
+  async index(request, response) {
+    const user_id = request.user.id
+
+    const carts = await knex('carts')
+      .select('id', 'created_at')
+      .where({ created_by: user_id })
+      .orderBy('created_at', 'desc')
+
+    return response.json(carts)
   }
 }
 
