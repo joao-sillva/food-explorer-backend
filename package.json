@@ -4,7 +4,8 @@
   "description": "API backend do food-explorer",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/server.js"
+    "dev": "nodemon ./src/server.js",
+    "migrate": "knex migrate:latest"
   },
   "keywords": [],
   "author": "joao-sillva",
