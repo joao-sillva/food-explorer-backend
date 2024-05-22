@@ -20,7 +20,7 @@
 
 ## 1️⃣ Sobre o projeto
 
-O projeto Food Explorer consiste no desafio final do programa Explorer da Rocketseat. Trata-se de uma aplicação de cardápio digital para um restaurante fictício. O back-end do projeto, que lida com a lógica e o armazenamento dos dados, o front-end da aplicação, responsável pela interface do usuário, está disponível [aqui](https://github.com/joao-sillva/food-explorer-frontend).
+O projeto Food Explorer consiste no desafio final do programa Explorer da Rocketseat. Trata-se de uma aplicação de cardápio digital para um restaurante fictício. O back-end do projeto, que lida com a lógica e o armazenamento dos dados, o front-end da aplicação, responsável pela interface do usuário, está disponível em https://github.com/joao-sillva/food-explorer-frontend
 
 ## 2️⃣ Estrutura
 * Usuários
@@ -48,7 +48,7 @@ O projeto Food Explorer consiste no desafio final do programa Explorer da Rocket
 - SQLite3
 
 ## 3️⃣ Utilização
-O back-end do projeto está hospedado no endereço [link deploy]... A aplicação Food Explorer está disponível para uso [aqui](https://food-explorer-frontend-80e47f.netlify.app/).
+O back-end do projeto está hospedado no endereço https://food-explorer-backend-zn12.onrender.com/ A aplicação Food Explorer está disponível em https://food-explorer-frontend2024.netlify.app/
 
 ⚠️ **Importante**: Este projeto utiliza uma hospedagem gratuita para o back-end, portanto, pode haver atrasos no tempo de resposta do servidor.
 
