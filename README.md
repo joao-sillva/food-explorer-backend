@@ -48,7 +48,7 @@ O projeto Food Explorer consiste no desafio final do programa Explorer da Rocket
 - SQLite3
 
 ## 3️⃣ Utilização
-O back-end do projeto está hospedado no endereço https://food-explorer-backend-zn12.onrender.com/ A aplicação Food Explorer está disponível em https://food-explorer-frontend2024.netlify.app/
+O back-end do projeto está hospedado no endereço https://food-explorer-backend-f3wr.onrender.com/ A aplicação Food Explorer está disponível em https://food-explorer-frontend2024.netlify.app/
 
 ⚠️ **Importante**: Este projeto utiliza uma hospedagem gratuita para o back-end, portanto, pode haver atrasos no tempo de resposta do servidor.
 
