@@ -113,7 +113,7 @@ class DishesController {
     let dishes
 
     if (search) {
-      const keywords  = search.split(' ').map((keyword) => `%${keyword}%`)
+      const keywords = search.split(' ').map((keyword) => `%${keyword}%`)
 
       dishes = await knex('dishes')
         .select([

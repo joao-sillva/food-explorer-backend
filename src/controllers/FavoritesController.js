@@ -17,20 +17,12 @@ class FavoritesController {
     const user_id = request.user.id
 
     const favorites = await knex('favorites')
-      .select([
-        'dishes.name', 
-        'dishes.description', 
-        'dishes.category', 
-        'dishes.price', 
-        'dishes.image'
-      ])
-      .innerJoin('dishes', 'dishes.id', 'favorites.dish_id')
       .select('dishes.*', 'favorites.dish_id')
       .innerJoin('dishes', 'dishes.id', 'favorites.dish_id')
-      .where({ user_id })
+      .where({ user_id });
 
     return response.json(favorites)
-  }  
+  }
 
   async delete(request, response) {
     const { dish_id } = request.params
